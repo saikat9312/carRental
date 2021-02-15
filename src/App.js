@@ -17,14 +17,18 @@ function App() {
   }, []);
 
   const handleClick = (id) => {
-    const carDetail = carList.filter( i => i.id === id)[0]
-    setSelectedCarDetail(carDetail)
+    const carDetail = carList.filter((i) => i.id === id)[0];
+    setSelectedCarDetail(carDetail);
     setIsBooknow(true);
   };
 
+  const handleClose = () => setIsBooknow(false);
+
   return (
     <div>
-      {isBooknow ? <Booknow {...selectedCarDetail} /> : null}
+      {isBooknow ? (
+        <Booknow {...selectedCarDetail} closeHandler={handleClose} />
+      ) : null}
       <div className="heading">Online Car Rental Services </div>
       <div className="container">
         {carList.map((item) => {

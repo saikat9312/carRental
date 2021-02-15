@@ -25,7 +25,6 @@ const Booknow = (props) => {
       .then((results) => results.json())
       .then((data) => {
         alert(data.message);
-        throw new Error();
       })
       .catch((e) => {
         alert("Error!");
@@ -92,7 +91,7 @@ const Booknow = (props) => {
         <button className="frm-action-btn button" onClick={handleSubmit}>
           Submit
         </button>
-        <button>Close</button>
+        <button onClick={props.closeHandler}>Close</button>
       </div>
     </form>
   );
